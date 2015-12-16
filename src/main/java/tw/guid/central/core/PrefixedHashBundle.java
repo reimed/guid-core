@@ -39,6 +39,14 @@ public class PrefixedHashBundle implements GuidEncodable {
 
   public PrefixedHashBundle() {}
 
+  public PrefixedHashBundle(String prefix, String hash1, String hash2,
+      String hash3) {
+    this.prefix = prefix;
+    this.hash1 = hash1;
+    this.hash2 = hash2;
+    this.hash3 = hash3;
+  }
+
   public PrefixedHashBundle(GuidEncodable guidEncodable) {
     prefix = guidEncodable.getPrefix().toUpperCase();
     hash1 = guidEncodable.getHash1().toUpperCase();
