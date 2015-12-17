@@ -21,10 +21,10 @@ import static com.google.common.collect.Sets.newLinkedHashSet;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Objects;
 import java.util.Set;
 
 import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
 public final class GuidSet<D extends GuidDecodable> {
 
@@ -36,7 +36,6 @@ public final class GuidSet<D extends GuidDecodable> {
     this.set = newLinkedHashSet(set);
   }
 
-  @SafeVarargs
   public GuidSet(D... set) {
     this.set = newLinkedHashSet(Arrays.asList(set));
   }
@@ -54,7 +53,7 @@ public final class GuidSet<D extends GuidDecodable> {
     if (this == other) return true;
     if (!(other instanceof GuidSet)) return false;
     GuidSet<?> castOther = (GuidSet<?>) other;
-    return Objects.equals(set, castOther.set);
+    return Objects.equal(set, castOther.set);
   }
 
   @Override

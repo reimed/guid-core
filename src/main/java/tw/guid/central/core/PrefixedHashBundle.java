@@ -17,11 +17,10 @@
  */
 package tw.guid.central.core;
 
-import java.util.Objects;
-
 import javax.validation.constraints.Pattern;
 
 import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
 public class PrefixedHashBundle implements GuidEncodable {
 
@@ -99,15 +98,15 @@ public class PrefixedHashBundle implements GuidEncodable {
     if (this == other) return true;
     if (!(other instanceof PrefixedHashBundle)) return false;
     PrefixedHashBundle castOther = (PrefixedHashBundle) other;
-    return Objects.equals(prefix, castOther.prefix)
-        && Objects.equals(hash1, castOther.hash1)
-        && Objects.equals(hash2, castOther.hash2)
-        && Objects.equals(hash3, castOther.hash3);
+    return Objects.equal(prefix, castOther.prefix)
+        && Objects.equal(hash1, castOther.hash1)
+        && Objects.equal(hash2, castOther.hash2)
+        && Objects.equal(hash3, castOther.hash3);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(prefix, hash1, hash2, hash3);
+    return Objects.hashCode(prefix, hash1, hash2, hash3);
   }
 
   @Override

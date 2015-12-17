@@ -17,11 +17,10 @@
  */
 package tw.guid.central.core;
 
-import java.util.Objects;
-
 import javax.validation.constraints.Pattern;
 
 import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
 public class PublicGuid implements GuidDecodable {
 
@@ -68,13 +67,13 @@ public class PublicGuid implements GuidDecodable {
     if (this == other) return true;
     if (!(other instanceof PublicGuid)) return false;
     PublicGuid castOther = (PublicGuid) other;
-    return Objects.equals(prefix, castOther.prefix)
-        && Objects.equals(code, castOther.code);
+    return Objects.equal(prefix, castOther.prefix)
+        && Objects.equal(code, castOther.code);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(prefix, code);
+    return Objects.hashCode(prefix, code);
   }
 
   @Override
