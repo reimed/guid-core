@@ -22,7 +22,12 @@ import javax.validation.constraints.Pattern;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
-public class PublicGuid implements GuidDecodable {
+/**
+ * 
+ * {@link PublicGuid} is the basic implementation of {@link GuidDecodable}.
+ *
+ */
+public final class PublicGuid implements GuidDecodable {
 
   @Pattern(regexp = "[A-Z0-9]{3,10}")
   private String prefix;
@@ -30,13 +35,30 @@ public class PublicGuid implements GuidDecodable {
   @Pattern(regexp = "[A-Z0-9]{8}")
   private String code;
 
+  /**
+   * Creates a {@link PublicGuid}.
+   */
   public PublicGuid() {}
 
+  /**
+   * Creates a {@link PublicGuid} by given prefix and code.
+   * 
+   * @param prefix
+   *          of a GUID
+   * @param code
+   *          of a GUID
+   */
   public PublicGuid(String prefix, String code) {
-    this.prefix = prefix;
-    this.code = code;
+    this.prefix = prefix.toUpperCase();
+    this.code = code.toUpperCase();
   }
 
+  /**
+   * Creates a {@link PublicGuid} by given {@link GuidDecodable}.
+   * 
+   * @param guidDecodable
+   *          a {@link GuidDecodable}
+   */
   public PublicGuid(GuidDecodable guidDecodable) {
     prefix = guidDecodable.getPrefix().toUpperCase();
     code = guidDecodable.getCode().toUpperCase();

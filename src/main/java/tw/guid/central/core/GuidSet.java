@@ -26,24 +26,57 @@ import java.util.Set;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
+/**
+ * 
+ * {@link GuidSet} implies a group of related GUIDs.
+ *
+ * @param <D>
+ *          a {@link GuidDecodable}
+ */
 public final class GuidSet<D extends GuidDecodable> {
 
   private Set<D> set = newLinkedHashSet();
 
+  /**
+   * Returns a {@link GuidSet}.
+   */
   public GuidSet() {}
 
+  /**
+   * Creates a {@link GuidSet}.
+   * 
+   * @param set
+   *          a group of GUIDs
+   */
   public GuidSet(Collection<D> set) {
-    this.set = newLinkedHashSet(set);
+    this.set.addAll(set);
   }
 
+  /**
+   * Creates a {@link GuidSet}.
+   * 
+   * @param set
+   *          a group of GUIDs
+   */
   public GuidSet(D... set) {
-    this.set = newLinkedHashSet(Arrays.asList(set));
+    this.set.addAll(Arrays.asList(set));
   }
 
+  /**
+   * Returns a group of GUIDs.
+   * 
+   * @return a group of GUIDs.
+   */
   public Set<D> getSet() {
     return set;
   }
 
+  /**
+   * Sets a group of GUIDs.
+   * 
+   * @param set
+   *          a group
+   */
   public void setSet(Set<D> set) {
     this.set = set;
   }

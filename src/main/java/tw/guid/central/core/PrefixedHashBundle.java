@@ -22,7 +22,13 @@ import javax.validation.constraints.Pattern;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
-public class PrefixedHashBundle implements GuidEncodable {
+/**
+ * 
+ * {@link PrefixedHashBundle} is a basic implementation of {@link GuidEncodable}
+ * .
+ *
+ */
+public final class PrefixedHashBundle implements GuidEncodable {
 
   @Pattern(regexp = "[A-Z0-9]{3,10}")
   private String prefix;
@@ -36,16 +42,37 @@ public class PrefixedHashBundle implements GuidEncodable {
   @Pattern(regexp = "[A-Z0-9]{128}")
   private String hash3;
 
+  /**
+   * Creates a {@link PrefixedHashBundle}.
+   */
   public PrefixedHashBundle() {}
 
+  /**
+   * Creates a {@link PrefixedHashBundle} by given prefix and hash codes.
+   * 
+   * @param prefix
+   *          of a GUID
+   * @param hash1
+   *          of a GUID
+   * @param hash2
+   *          of a GUID
+   * @param hash3
+   *          of a GUID
+   */
   public PrefixedHashBundle(String prefix, String hash1, String hash2,
       String hash3) {
-    this.prefix = prefix;
-    this.hash1 = hash1;
-    this.hash2 = hash2;
-    this.hash3 = hash3;
+    this.prefix = prefix.toUpperCase();
+    this.hash1 = hash1.toUpperCase();
+    this.hash2 = hash2.toUpperCase();
+    this.hash3 = hash3.toUpperCase();
   }
 
+  /**
+   * Creates a {@link PrefixedHashBundle} by given {@link GuidEncodable}.
+   * 
+   * @param guidEncodable
+   *          any {@link GuidEncodable}
+   */
   public PrefixedHashBundle(GuidEncodable guidEncodable) {
     prefix = guidEncodable.getPrefix().toUpperCase();
     hash1 = guidEncodable.getHash1().toUpperCase();

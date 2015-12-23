@@ -17,14 +17,41 @@
  */
 package tw.guid.central.core;
 
+/**
+ * 
+ * {@link GuidDecodable} allows to be converted to {@link GuidEncodable}.
+ *
+ */
 public interface GuidDecodable {
 
+  /**
+   * Returns the prefix of the GUID.
+   * 
+   * @return prefix of the GUID
+   */
   public String getPrefix();
 
+  /**
+   * Sets the prefix of the GUID.
+   * 
+   * @param prefix
+   *          of the GUID
+   */
   public void setPrefix(String prefix);
 
+  /**
+   * Returns the code of the GUID.
+   * 
+   * @return code of the GUID
+   */
   public String getCode();
 
+  /**
+   * Sets the code of the GUID.
+   * 
+   * @param code
+   *          of the GUID
+   */
   public void setCode(String code);
 
 }

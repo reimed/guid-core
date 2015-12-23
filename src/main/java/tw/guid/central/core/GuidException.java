@@ -17,6 +17,12 @@
  */
 package tw.guid.central.core;
 
+/**
+ * 
+ * {@link GuidException} is designed to be thrown while any exception occurs
+ * during GUID processes.
+ *
+ */
 public class GuidException extends RuntimeException {
 
   private static final long serialVersionUID = 1L;

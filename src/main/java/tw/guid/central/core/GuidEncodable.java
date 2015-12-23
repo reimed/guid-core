@@ -17,6 +17,11 @@
  */
 package tw.guid.central.core;
 
+/**
+ * 
+ * {@link GuidEncodable} allows to be converted to {@link GuidDecodable}.
+ *
+ */
 public interface GuidEncodable {
 
   public String getPrefix();

@@ -17,4 +17,10 @@
  */
 package tw.guid.central.core;
 
+/**
+ * 
+ * {@link GuidCodable} combimes both {@link GuidEncodable} and
+ * {@link GuidDecodable}.
+ *
+ */
 public interface GuidCodable extends GuidEncodable, GuidDecodable {}
