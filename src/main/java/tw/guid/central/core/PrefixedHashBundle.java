@@ -30,7 +30,7 @@ import com.google.common.base.Objects;
  */
 public final class PrefixedHashBundle implements GuidEncodable {
 
-  @Pattern(regexp = "[A-Z0-9]{3,10}")
+  @Pattern(regexp = "[^\\s]{1,10}")
   private String prefix;
 
   @Pattern(regexp = "[A-Z0-9]{128}")
@@ -61,7 +61,7 @@ public final class PrefixedHashBundle implements GuidEncodable {
    */
   public PrefixedHashBundle(String prefix, String hash1, String hash2,
       String hash3) {
-    this.prefix = prefix.toUpperCase();
+    this.prefix = prefix;
     this.hash1 = hash1.toUpperCase();
     this.hash2 = hash2.toUpperCase();
     this.hash3 = hash3.toUpperCase();
@@ -74,7 +74,7 @@ public final class PrefixedHashBundle implements GuidEncodable {
    *          any {@link GuidEncodable}
    */
   public PrefixedHashBundle(GuidEncodable guidEncodable) {
-    prefix = guidEncodable.getPrefix().toUpperCase();
+    prefix = guidEncodable.getPrefix();
     hash1 = guidEncodable.getHash1().toUpperCase();
     hash2 = guidEncodable.getHash2().toUpperCase();
     hash3 = guidEncodable.getHash3().toUpperCase();
@@ -87,7 +87,7 @@ public final class PrefixedHashBundle implements GuidEncodable {
 
   @Override
   public void setPrefix(String prefix) {
-    this.prefix = prefix.toUpperCase();
+    this.prefix = prefix;
   }
 
   @Override

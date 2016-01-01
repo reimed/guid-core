@@ -48,7 +48,7 @@ public class PrefixedHashBundleTest {
 
               @Override
               public String getPrefix() {
-                return "P";
+                return "p";
               }
 
               @Override
@@ -80,8 +80,12 @@ public class PrefixedHashBundleTest {
 
             }))
         .testEquals();
-    assertEquals("PrefixedHashBundle{prefix=P, hash1=A, hash2=B, hash3=C}",
+    assertEquals("PrefixedHashBundle{prefix=p, hash1=A, hash2=B, hash3=C}",
         phb.toString());
+    assertEquals("p", phb.getPrefix());
+    assertEquals("A", phb.getHash1());
+    assertEquals("B", phb.getHash2());
+    assertEquals("C", phb.getHash3());
   }
 
 }

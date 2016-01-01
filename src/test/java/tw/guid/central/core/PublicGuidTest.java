@@ -35,11 +35,11 @@ public class PublicGuidTest {
   @Test
   public void testUpperCase() {
     PublicGuid pg = new PublicGuid("p", "abc");
-    assertEquals("PublicGuid{prefix=P, code=ABC}", pg.toString());
+    assertEquals("PublicGuid{prefix=p, code=ABC}", pg.toString());
     pg = new PublicGuid();
     pg.setPrefix("p");
     pg.setCode("abc");
-    assertEquals("PublicGuid{prefix=P, code=ABC}", pg.toString());
+    assertEquals("PublicGuid{prefix=p, code=ABC}", pg.toString());
     GuidDecodable gd = new GuidDecodable() {
 
       @Override
@@ -60,8 +60,8 @@ public class PublicGuidTest {
 
     };
     pg = new PublicGuid(gd);
-    assertEquals("PublicGuid{prefix=P, code=ABC}", pg.toString());
-    assertEquals("P", pg.getPrefix());
+    assertEquals("PublicGuid{prefix=p, code=ABC}", pg.toString());
+    assertEquals("p", pg.getPrefix());
     assertEquals("ABC", pg.getCode());
   }
 

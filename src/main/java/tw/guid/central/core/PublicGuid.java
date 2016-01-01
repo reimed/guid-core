@@ -29,7 +29,7 @@ import com.google.common.base.Objects;
  */
 public final class PublicGuid implements GuidDecodable {
 
-  @Pattern(regexp = "[A-Z0-9]{3,10}")
+  @Pattern(regexp = "[^\\s]{1,10}")
   private String prefix;
 
   @Pattern(regexp = "[A-Z0-9]{8}")
@@ -49,7 +49,7 @@ public final class PublicGuid implements GuidDecodable {
    *          of a GUID
    */
   public PublicGuid(String prefix, String code) {
-    this.prefix = prefix.toUpperCase();
+    this.prefix = prefix;
     this.code = code.toUpperCase();
   }
 
@@ -60,7 +60,7 @@ public final class PublicGuid implements GuidDecodable {
    *          a {@link GuidDecodable}
    */
   public PublicGuid(GuidDecodable guidDecodable) {
-    prefix = guidDecodable.getPrefix().toUpperCase();
+    prefix = guidDecodable.getPrefix();
     code = guidDecodable.getCode().toUpperCase();
   }
 
@@ -71,7 +71,7 @@ public final class PublicGuid implements GuidDecodable {
 
   @Override
   public void setPrefix(String prefix) {
-    this.prefix = prefix.toUpperCase();
+    this.prefix = prefix;
   }
 
   @Override
