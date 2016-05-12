@@ -1,6 +1,6 @@
 /*
  *
- * Copyright 2015 Wei-Ming Wu
+ * Copyright 2016 Wei-Ming Wu
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -19,13 +19,21 @@ package tw.guid.central.core;
 
 /**
  * 
- * {@link GuidEncodable} allows to be converted to {@link GuidDecodable}.
+ * {@link GuidHashCodes} defines the hash codes of a GUID.
  *
  */
-public interface GuidEncodable extends GuidHashCodes {
+public interface GuidHashCodes {
 
-  public String getPrefix();
+  public String getHash1();
 
-  public void setPrefix(String prefix);
+  public void setHash1(String hash1);
+
+  public String getHash2();
+
+  public void setHash2(String hash2);
+
+  public String getHash3();
+
+  public void setHash3(String hash3);
 
 }
