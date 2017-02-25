@@ -61,10 +61,26 @@ public final class PrefixedHashBundle implements GuidEncodable {
    */
   public PrefixedHashBundle(String prefix, String hash1, String hash2,
       String hash3) {
-    this.prefix = prefix;
-    this.hash1 = hash1.toUpperCase();
-    this.hash2 = hash2.toUpperCase();
-    this.hash3 = hash3.toUpperCase();
+    setPrefix(prefix);
+    setHash1(hash1);
+    setHash2(hash2);
+    setHash3(hash3);
+  }
+
+  /**
+   * Creates a {@link PrefixedHashBundle} by given prefix and
+   * {@link GuidHashCodes}.
+   * 
+   * @param prefix
+   *          of a GUID
+   * @param hashCodes
+   *          a {@link GuidHashCodes}
+   */
+  public PrefixedHashBundle(String prefix, GuidHashCodes hashCodes) {
+    setPrefix(prefix);
+    setHash1(hashCodes.getHash1());
+    setHash2(hashCodes.getHash2());
+    setHash3(hashCodes.getHash3());
   }
 
   /**
@@ -74,10 +90,10 @@ public final class PrefixedHashBundle implements GuidEncodable {
    *          any {@link GuidEncodable}
    */
   public PrefixedHashBundle(GuidEncodable guidEncodable) {
-    prefix = guidEncodable.getPrefix();
-    hash1 = guidEncodable.getHash1().toUpperCase();
-    hash2 = guidEncodable.getHash2().toUpperCase();
-    hash3 = guidEncodable.getHash3().toUpperCase();
+    setPrefix(guidEncodable.getPrefix());
+    setHash1(guidEncodable.getHash1());
+    setHash2(guidEncodable.getHash2());
+    setHash3(guidEncodable.getHash3());
   }
 
   @Override
